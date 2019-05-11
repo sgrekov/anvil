@@ -3,11 +3,13 @@ package trikita.anvil.constraint.layout;
 import android.support.constraint.Barrier;
 import android.support.constraint.ConstraintHelper;
 import android.support.constraint.ConstraintLayout;
+import android.support.constraint.ConstraintSet;
 import android.support.constraint.Constraints;
 import android.support.constraint.Group;
 import android.support.constraint.Guideline;
 import android.support.constraint.Placeholder;
 import android.view.View;
+import java.lang.Boolean;
 import java.lang.Float;
 import java.lang.Integer;
 import java.lang.Object;
@@ -83,6 +85,14 @@ public final class ConstraintDSL implements Anvil.AttributeSetter {
     return BaseDSL.v(Placeholder.class, r);
   }
 
+  public static Void allowsGoneWidget(boolean arg) {
+    return BaseDSL.attr("allowsGoneWidget", arg);
+  }
+
+  public static Void constraintSet(ConstraintSet arg) {
+    return BaseDSL.attr("constraintSet", arg);
+  }
+
   public static Void contentId(int arg) {
     return BaseDSL.attr("contentId", arg);
   }
@@ -103,8 +113,48 @@ public final class ConstraintDSL implements Anvil.AttributeSetter {
     return BaseDSL.attr("guidelinePercent", arg);
   }
 
+  public static Void maxHeight(int arg) {
+    return BaseDSL.attr("maxHeight", arg);
+  }
+
+  public static Void maxWidth(int arg) {
+    return BaseDSL.attr("maxWidth", arg);
+  }
+
+  public static Void minHeight(int arg) {
+    return BaseDSL.attr("minHeight", arg);
+  }
+
+  public static Void minWidth(int arg) {
+    return BaseDSL.attr("minWidth", arg);
+  }
+
+  public static Void optimizationLevel(int arg) {
+    return BaseDSL.attr("optimizationLevel", arg);
+  }
+
+  public static Void referencedIds(int[] arg) {
+    return BaseDSL.attr("referencedIds", arg);
+  }
+
+  public static Void type(int arg) {
+    return BaseDSL.attr("type", arg);
+  }
+
   public boolean set(View v, String name, final Object arg, final Object old) {
     switch (name) {
+      case "allowsGoneWidget":
+        if (v instanceof Barrier && arg instanceof Boolean) {
+          ((Barrier) v).setAllowsGoneWidget((boolean) arg);
+          return true;
+        }
+        break;
+      case "constraintSet":
+        if (v instanceof ConstraintLayout && arg instanceof ConstraintSet) {
+          ((ConstraintLayout) v).setConstraintSet((ConstraintSet) arg);
+          return true;
+        }
+        break;
       case "contentId":
         if (v instanceof Placeholder && arg instanceof Integer) {
           ((Placeholder) v).setContentId((int) arg);
@@ -132,6 +182,48 @@ public final class ConstraintDSL implements Anvil.AttributeSetter {
       case "guidelinePercent":
         if (v instanceof Guideline && arg instanceof Float) {
           ((Guideline) v).setGuidelinePercent((float) arg);
+          return true;
+        }
+        break;
+      case "maxHeight":
+        if (v instanceof ConstraintLayout && arg instanceof Integer) {
+          ((ConstraintLayout) v).setMaxHeight((int) arg);
+          return true;
+        }
+        break;
+      case "maxWidth":
+        if (v instanceof ConstraintLayout && arg instanceof Integer) {
+          ((ConstraintLayout) v).setMaxWidth((int) arg);
+          return true;
+        }
+        break;
+      case "minHeight":
+        if (v instanceof ConstraintLayout && arg instanceof Integer) {
+          ((ConstraintLayout) v).setMinHeight((int) arg);
+          return true;
+        }
+        break;
+      case "minWidth":
+        if (v instanceof ConstraintLayout && arg instanceof Integer) {
+          ((ConstraintLayout) v).setMinWidth((int) arg);
+          return true;
+        }
+        break;
+      case "optimizationLevel":
+        if (v instanceof ConstraintLayout && arg instanceof Integer) {
+          ((ConstraintLayout) v).setOptimizationLevel((int) arg);
+          return true;
+        }
+        break;
+      case "referencedIds":
+        if (v instanceof ConstraintHelper && arg instanceof int[]) {
+          ((ConstraintHelper) v).setReferencedIds((int[]) arg);
+          return true;
+        }
+        break;
+      case "type":
+        if (v instanceof Barrier && arg instanceof Integer) {
+          ((Barrier) v).setType((int) arg);
           return true;
         }
         break;
