@@ -144,6 +144,10 @@ public final class Anvil {
         }
     }
 
+    public static <T extends View> WeakReference<View> getMountRootView(T v) {
+        return mounts.get(v).rootView;
+    }
+
     /**
      * Mounts a renderable function defining the layout into a View. If host is a
      * viewgroup it is assumed to be empty, so the Renderable would define what
