@@ -1,21 +1,13 @@
 package trikita.anvil.sample
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.content.res.ResourcesCompat
-import android.util.Log
-import android.view.View
-import android.widget.Button
-import trikita.anvil.BaseDSL.WRAP
+import android.support.v7.app.AppCompatActivity
 import android.widget.LinearLayout
-import trikita.anvil.Anvil
-import trikita.anvil.BaseDSL
 import trikita.anvil.BaseDSL.MATCH
+import trikita.anvil.BaseDSL.WRAP
 import trikita.anvil.BaseDSL.dip
-import trikita.anvil.BaseDSL.init
 import trikita.anvil.BaseDSL.padding
 import trikita.anvil.BaseDSL.size
-import trikita.anvil.DSL
 import trikita.anvil.DSL.button
 import trikita.anvil.DSL.frameLayout
 import trikita.anvil.DSL.linearLayout
@@ -34,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(object : RenderableView(this) {
             override fun view() {
-                Log.d("tag", "my RenderableView view()")
                 linearLayout {
                     size(MATCH, MATCH)
                     padding(dip(8))
