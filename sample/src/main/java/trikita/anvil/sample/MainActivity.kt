@@ -1,8 +1,8 @@
 package trikita.anvil.sample
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import trikita.anvil.BaseDSL.MATCH
 import trikita.anvil.BaseDSL.WRAP
 import trikita.anvil.BaseDSL.dip
@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
                     }
-
                 }
             }
         })
