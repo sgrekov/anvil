@@ -62,7 +62,7 @@ import trikita.anvil.BaseDSL;
  * It contains views and their setters from the library material.
  * Please, don't edit it manually unless for debugging.
  */
-public final class MaterialDSL implements Anvil.AttributeSetter {
+public final class MaterialDSL extends BaseMaterial implements Anvil.AttributeSetter {
   static {
     Anvil.registerAttributeSetter(new MaterialDSL());
   }

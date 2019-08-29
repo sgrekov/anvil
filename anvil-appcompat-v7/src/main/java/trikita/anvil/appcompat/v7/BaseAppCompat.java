@@ -1,7 +1,7 @@
 package trikita.anvil.appcompat.v7;
 
-import android.support.v7.widget.Toolbar;
 import android.view.View;
+import androidx.appcompat.widget.Toolbar;
 import trikita.anvil.Anvil;
 
 public class BaseAppCompat implements Anvil.AttributeSetter {
